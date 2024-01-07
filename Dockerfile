@@ -1,5 +1,6 @@
 #Step 0: Choose base
 FROM adoptopenjdk/openjdk11:latest
+RUN mkdir /opt/app
 #Step 1 : Install the pre-requisite
 RUN apt-get update
 RUN apt-get install -y curl
@@ -53,6 +54,8 @@ RUN mkdir -p /usr/share/maven /usr/share/maven/ref \
 ENV MAVEN_HOME /usr/share/maven
 ENV MAVEN_CONFIG "$USER_HOME_DIR/.m2"
 #Step 7: Copy our project
-COPY . /app
+#COPY . /app
+RUN mkdir /opt/app
 #Making our working directory as /app
-WORKDIR /app
+#WORKDIR /app
+WORKDIR /opt/app
