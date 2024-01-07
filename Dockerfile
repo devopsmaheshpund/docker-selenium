@@ -28,7 +28,7 @@ RUN curl https://chromedriver.storage.googleapis.com/$CHROMDRIVER_VERSION/chrome
 RUN chmod +x /app/bin/chromedriver
 #Step 6: Install Maven
 # 1- Define Maven version
-ARG MAVEN_VERSION=3.6.3
+ARG MAVEN_VERSION=3.9.6
 # 2- Define a constant with the working directory
 ARG USER_HOME_DIR="/root"
 
@@ -41,7 +41,7 @@ ARG BASE_URL=https://dlcdn.apache.org/maven/maven-3/${MAVEN_VERSION}/binaries
 # 5- Create the directories, download maven, validate the download, install it, remove downloaded file and set links
 RUN mkdir -p /usr/share/maven /usr/share/maven/ref \
   && echo "Downlaoding maven" \
-  && curl -fsSL -o /tmp/apache-maven.tar.gz ${BASE_URL}/apache-maven-${MAVEN_VERSION}-bin.tar.gz \
+  && curl -k -o /tmp/apache-maven.tar.gz ${BASE_URL}/apache-maven-${MAVEN_VERSION}-bin.tar.gz \
   \
   && echo "Checking download hash" \
   && echo "${SHA}  /tmp/apache-maven.tar.gz" | sha512sum -c - \
