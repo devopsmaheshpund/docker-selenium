@@ -1,5 +1,5 @@
 #Step 0: Choose base
-FROM kshivaprasad/java:1.8
+FROM adoptopenjdk/openjdk11:latest
 #Step 1 : Install the pre-requisite
 RUN apt-get update
 RUN apt-get install -y curl
