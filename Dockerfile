@@ -55,7 +55,7 @@ ENV MAVEN_HOME /usr/share/maven
 ENV MAVEN_CONFIG "$USER_HOME_DIR/.m2"
 #Step 7: Copy our project
 #COPY . /app
-RUN mkdir /opt/app
+#RUN mkdir /opt/app
 #Making our working directory as /app
 #WORKDIR /app
 WORKDIR /opt/app
