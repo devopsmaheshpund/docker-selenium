@@ -1,6 +1,5 @@
 #Step 0: Choose base
-FROM openjdk:11
-RUN mkdir /opt/app
+FROM kshivaprasad/java:1.8
 #Step 1 : Install the pre-requisite
 RUN apt-get update
 RUN apt-get install -y curl
@@ -54,8 +53,6 @@ RUN mkdir -p /usr/share/maven /usr/share/maven/ref \
 ENV MAVEN_HOME /usr/share/maven
 ENV MAVEN_CONFIG "$USER_HOME_DIR/.m2"
 #Step 7: Copy our project
-#COPY . /usr/src/myapp
-#RUN mkdir /opt/app
+COPY . /app
 #Making our working directory as /app
-#WORKDIR /app
-WORKDIR /usr/src/myapp
+WORKDIR /app
