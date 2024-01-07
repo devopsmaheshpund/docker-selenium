@@ -18,7 +18,7 @@ ARG FIREFOXDRIVER_VERSION=0.26.0
 
 #Step 2: Install Chrome
 RUN curl http://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_$CHROME_VERSION-1_amd64.deb -o /chrome.deb
-RUN apt-get install -i /chrome.deb
+RUN apt-get install /chrome.deb
 RUN rm /chrome.deb
 #Step 3: Install chromedriver for Selenium
 RUN mkdir -p /app/bin
