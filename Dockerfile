@@ -2,6 +2,7 @@
 FROM kshivaprasad/java:1.8
 #Step 1 : Install the pre-requisite
 RUN apt-get update
+RUN apt-get install -y openjdk-8-jdk
 RUN apt-get install -y curl
 RUN apt-get install -y p7zip \
     p7zip-full \
