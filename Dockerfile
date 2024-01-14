@@ -1,4 +1,5 @@
 #Step 0: Choose base
+FROM ubuntu
 FROM kshivaprasad/java:1.8
 #Step 1 : Install the pre-requisite
 RUN apt-get update
