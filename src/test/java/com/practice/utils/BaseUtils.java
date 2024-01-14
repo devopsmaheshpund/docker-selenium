@@ -14,18 +14,17 @@ public class BaseUtils {
 
 	@BeforeTest
 	public void setupDriver() {
-//		WebDriverManager.chromedriver().setup();
 		System.setProperty("webdriver.chrome.driver","/app/bin/chromedriver");
-//		DesiredCapabilities dc = null;
 		ChromeOptions options = new ChromeOptions();
-	    options.addArguments("--window-size=1920, 1080");
-	    options.addArguments("--allow-insecure-localhost");
-	    options.addArguments("--headless=new");
-	    options.addArguments("--disable-gpu");
-	    options.addArguments("--no-sandbox");
-	    DesiredCapabilities caps = DesiredCapabilities.chrome();
-	    caps.setCapability(ChromeOptions.CAPABILITY, options);
-	    caps.setCapability("acceptInsecureCerts", caps);
+		options.addArguments("--headless");
+		options.addArguments("--no-sandbox");
+		System.setProperty("webdriver.chrome.args", "--disable-logging");
+		System.setProperty("webdriver.chrome.silentOutput", "true");
+		options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
+		options.addArguments("disable-infobars"); // disabling infobars
+		options.addArguments("--disable-extensions"); // disabling extensions
+		options.addArguments("--disable-gpu"); // applicable to windows os only
+		options.addArguments("window-size=1024,768"); // Bypass OS security model
 		driver = new ChromeDriver(options);
 		driver.get("https://www.google.com/");
 	}
