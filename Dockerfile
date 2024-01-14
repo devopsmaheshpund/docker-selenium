@@ -1,5 +1,4 @@
 #Step 0: Choose base
-FROM ubuntu
 FROM kshivaprasad/java:1.8
 #Step 1 : Install the pre-requisite
 RUN apt-get update
@@ -14,8 +13,7 @@ RUN apt-get install -y p7zip \
 
 #Version numbers
 ARG FIREFOX_VERSION=78.0.2
-#ARG CHROME_VERSION=83.0.4103.116
-ARG CHROME_VERSION=120.0.6099.109
+ARG CHROME_VERSION=83.0.4103.116
 ARG CHROMDRIVER_VERSION=83.0.4103.39
 ARG FIREFOXDRIVER_VERSION=0.26.0
 
@@ -26,10 +24,9 @@ RUN rm /chrome.deb
 #Step 3: Install chromedriver for Selenium
 RUN mkdir -p /app/bin
 RUN curl https://chromedriver.storage.googleapis.com/$CHROMDRIVER_VERSION/chromedriver_linux64.zip -o /tmp/chromedriver.zip \
-#RUN curl https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/120.0.6099.109/linux64/chromedriver-linux64.zip -o /tmp/chromedriver.zip \
     && unzip /tmp/chromedriver.zip -d /app/bin/ \
     && rm /tmp/chromedriver.zip
-RUN chmod a+x /app/bin/chromedriver
+RUN chmod +x /app/bin/chromedriver
 #Step 6: Install Maven
 # 1- Define Maven version
 ARG MAVEN_VERSION=3.9.6
