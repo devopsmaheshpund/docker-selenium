@@ -10,7 +10,7 @@ import org.testng.annotations.BeforeTest;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseUtils {
-	protected WebDriver driver;
+	protected ChromeDriver driver;
 
 	@BeforeTest
 	public void setupDriver() {
