@@ -14,7 +14,8 @@ public class BaseUtils {
 
 	@BeforeTest
 	public void setupDriver() {
-		WebDriverManager.chromedriver().setup();
+//		WebDriverManager.chromedriver().setup();
+		System.setProperty("webdriver.chrome.driver","/app/bin/chromedriver");
 //		DesiredCapabilities dc = null;
 		ChromeOptions options = new ChromeOptions();
 	    options.addArguments("--window-size=1920, 1080");
